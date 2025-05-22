@@ -7,9 +7,17 @@ import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from '../components/ui/chart'; // Import chart components
-import type { ChartConfig } from '../components/ui/chart'; // Import ChartConfig as a type
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Cell, Legend } from 'recharts'; // Import recharts components
+} from '../components/ui/chart';
+import type { ChartConfig } from '../components/ui/chart';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Cell, Legend } from 'recharts';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '../components/ui/dialog'; // Import Dialog components
 
 interface YearlyData {
   year: number;
@@ -20,7 +28,7 @@ interface YearlyData {
 interface PieData {
   name: string;
   value: number;
-  color: string; // Add color for pie chart segments
+  color: string;
 }
 
 const Calculators: React.FC = () => {
@@ -33,12 +41,13 @@ const Calculators: React.FC = () => {
   const [realFutureValue, setRealFutureValue] = useState<number | null>(null);
   const [yearlyData, setYearlyData] = useState<YearlyData[]>([]);
   const [pieData, setPieData] = useState<PieData[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const calculateSIP = () => {
-    const p = monthlyDeposit; // Monthly investment
+    const p = monthlyDeposit;
     const annualReturnDecimal = annualReturnRate / 100;
-    const monthlyReturnRate = annualReturnDecimal / 12; // Monthly return rate
-    const totalMonths = years * 12; // Total number of months
+    const monthlyReturnRate = annualReturnDecimal / 12;
+    const totalMonths = years * 12;
     const annualInflationDecimal = annualInflationRate / 100;
 
     const calculatedYearlyData: YearlyData[] = [];
@@ -48,8 +57,6 @@ const Calculators: React.FC = () => {
     for (let i = 1; i <= years; i++) {
       totalInvested = monthlyDeposit * 12 * i;
 
-      // Calculate market value at the end of year i
-      // Using Future Value of Annuity formula compounded monthly
       const numberOfMonths = i * 12;
       currentMarketValue = p * ((Math.pow(1 + monthlyReturnRate, numberOfMonths) - 1) / monthlyReturnRate);
 
@@ -60,7 +67,7 @@ const Calculators: React.FC = () => {
       });
     }
 
-    const finalNominalFV = currentMarketValue; // Market value at the end of the last year
+    const finalNominalFV = currentMarketValue;
     const finalRealFV = finalNominalFV / Math.pow(1 + annualInflationDecimal, years);
     const totalInvestmentOverPeriod = monthlyDeposit * totalMonths;
     const totalEarnings = finalNominalFV - totalInvestmentOverPeriod;
@@ -98,16 +105,33 @@ const Calculators: React.FC = () => {
     },
   } satisfies ChartConfig;
 
+  const handleSaveAsPdf = () => {
+    // TODO: Implement PDF generation logic here
+    // You will likely need a library like html2pdf.js or jspdf
+    // Install it using npm or yarn: npm install html2pdf.js or yarn add html2pdf.js
+    console.log("Save as PDF button clicked. PDF generation logic needs to be implemented.");
+    alert("PDF generation logic is not yet implemented.");
+  };
+
 
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-2xl font-bold mb-4">Financial Calculators</h2>
 
-      <Card className="mb-6">
-        <CardHeader>
-          <CardTitle>SIP Calculator</CardTitle>
-        </CardHeader>
-        <CardContent>
+      {/* SIP Calculator Modal Trigger */}
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogTrigger asChild>
+          <Button onClick={() => setIsModalOpen(true)}>Open SIP Calculator</Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[800px] h-[90vh] overflow-y-auto"> {/* Adjust max-width and height for larger modal */}
+          <DialogHeader>
+            <DialogTitle>SIP Calculator</DialogTitle>
+            <DialogDescription>
+              Calculate the potential future value of your Systematic Investment Plan.
+            </DialogDescription>
+          </DialogHeader>
+          
+          {/* SIP Calculator Content */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <Label htmlFor="monthlyDeposit">Monthly Deposit</Label>
@@ -250,8 +274,17 @@ const Calculators: React.FC = () => {
               </div>
             </div>
           )}
-        </CardContent>
-      </Card>
+
+          {/* Save as PDF Button */}
+          {nominalFutureValue !== null && realFutureValue !== null && (
+             <Button onClick={handleSaveAsPdf} className="mt-6">
+               Save as PDF
+             </Button>
+          )}
+
+        </DialogContent>
+      </Dialog>
+
 
       {/* Add other calculators here */}
     </div>
