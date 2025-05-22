@@ -5,9 +5,9 @@ import { cn } from "../lib/utils"; // Assuming cn utility is available for condi
 
 // Sample data for financial models
 const financialModels = [
-  { name: 'Model A', url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS8onhG-pDxcLGa2w6i1svzlwmwZDBVWpNYyaHLpciBhMBo0g5Chuin_2BdmMk7L-M_Yc5WSTgXVPaE/pubhtml?widget=true&headers=false' },
-  { name: 'Model B', url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS8onhG-pDxcLGa2w6i1svzlwmwZDBVWpNYyaHLpciBhMBo0g5Chuin_2BdmMk7L-M_Yc5WSTgXVPaE/pubhtml?widget=true&headers=false' }, // Replace with actual URLs
-  { name: 'Model C', url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS8onhG-pDxcLGa2w6i1svzlwmwZDBVWpNYyaHLpciBhMBo0g5Chuin_2BdmMk7L-M_Yc5WSTgXVPaE/pubhtml?widget=true&headers=false' }, // Replace with actual URLs
+  { name: 'Model A', url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS8onhG-pDxcLGa2w6i1svzlwmwZDBVWpNYyaHLpciBhMBo0g5Chuin_2BdmMk7L-M_Yc5WSTgXVPaE/pubhtml?widget=true&headers=false', downloadUrl: 'https://docs.google.com/spreadsheets/d/1XqfR53PjQPE9rdqyHsujZxlM1i1SSB6MzBWVw2Xd-Zo/export?format=xlsx' },
+  { name: 'Model B', url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS8onhG-pDxcLGa2w6i1svzlwmwZDBVWpNYyaHLpciBhMBo0g5Chuin_2BdmMk7L-M_Yc5WSTgXVPaE/pubhtml?widget=true&headers=false', downloadUrl: 'https://docs.google.com/spreadsheets/d/1XqfR53PjQPE9rdqyHsujZxlM1i1SSB6MzBWVw2Xd-Zo/export?format=xlsx' }, // Replace with actual URLs and download URLs
+  { name: 'Model C', url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS8onhG-pDxcLGa2w6i1svzlwmwZDBVWpNYyaHLpciBhMBo0g5Chuin_2BdmMk7L-M_Yc5WSTgXVPaE/pubhtml?widget=true&headers=false', downloadUrl: 'https://docs.google.com/spreadsheets/d/1XqfR53PjQPE9rdqyHsujZxlM1i1SSB6MzBWVw2Xd-Zo/export?format=xlsx' }, // Replace with actual URLs and download URLs
 ];
 
 const FinancialModels: React.FC = () => {
@@ -44,12 +44,11 @@ const FinancialModels: React.FC = () => {
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="sm:max-w-[90%] h-5/6 flex flex-col"> {/* Adjust max-width and height */}
           <DialogHeader>
-            <DialogTitle>Financial Model</DialogTitle>
-            <DialogClose asChild>
+            {/* <DialogTitle>Financial Model</DialogTitle> */}
+            {/* <DialogClose asChild>
               <Button variant="ghost" className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-                 &times; {/* Close button */}
               </Button>
-            </DialogClose>
+            </DialogClose> */}
           </DialogHeader>
           <div className="flex-grow relative"> {/* Container for loader and iframe */}
             {isLoading && (
@@ -69,6 +68,19 @@ const FinancialModels: React.FC = () => {
               className={cn(isLoading ? 'invisible' : 'visible')} // Hide iframe while loading
             ></iframe>
           </div>
+          {/* Add download button */}
+          {selectedModelUrl && (
+             <div className="flex justify-center mt-4">
+               {/* Find the selected model to get its download URL */}
+               {financialModels.find(model => model.url === selectedModelUrl)?.downloadUrl && (
+                 <Button asChild>
+                   <a href={financialModels.find(model => model.url === selectedModelUrl)?.downloadUrl} download={`${financialModels.find(model => model.url === selectedModelUrl)?.name}.xlsx`}>
+                     Download as Excel
+                   </a>
+                 </Button>
+               )}
+             </div>
+           )}
         </DialogContent>
       </Dialog>
     </div>
