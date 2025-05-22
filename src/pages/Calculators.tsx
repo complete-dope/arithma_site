@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // Import useEffect
 import { Input } from '../components/ui/input';
 import { Button } from '../components/ui/button';
 import { Label } from '../components/ui/label';
@@ -80,6 +80,11 @@ const Calculators: React.FC = () => {
       { name: 'Total Earnings', value: totalEarnings, color: '#82ca9d' },
     ]);
   };
+
+  // Call calculateSIP on component mount to display initial results
+  useEffect(() => {
+    calculateSIP();
+  }, []); // Empty dependency array ensures this runs only once on mount
 
   // Chart configuration for the Area Chart
   const areaChartConfig = {
