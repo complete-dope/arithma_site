@@ -1,0 +1,6 @@
+// Sample data for financial models
+export const financialModels = [
+    { name: 'Model A', url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS8onhG-pDxcLGa2w6i1svzlwmwZDBVWpNYyaHLpciBhMBo0g5Chuin_2BdmMk7L-M_Yc5WSTgXVPaE/pubhtml?widget=true&headers=false', downloadUrl: 'https://docs.google.com/spreadsheets/d/1XqfR53PjQPE9rdqyHsujZxlM1i1SSB6MzBWVw2Xd-Zo/export?format=xlsx' },
+    { name: 'Model B', url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS8onhG-pDxcLGa2w6i1svzlwmwZDBVWpNYyaHLpciBhMBo0g5Chuin_2BdmMk7L-M_Yc5WSTgXVPaE/pubhtml?widget=true&headers=false', downloadUrl: 'https://docs.google.com/spreadsheets/d/1XqfR53PjQPE9rdqyHsujZxlM1i1SSB6MzBWVw2Xd-Zo/export?format=xlsx' }, // Replace with actual URLs and download URLs
+    { name: 'Model C', url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS8onhG-pDxcLGa2w6i1svzlwmwZDBVWpNYyaHLpciBhMBo0g5Chuin_2BdmMk7L-M_Yc5WSTgXVPaE/pubhtml?widget=true&headers=false', downloadUrl: 'https://docs.google.com/spreadsheets/d/1XqfR53PjQPE9rdqyHsujZxlM1i1SSB6MzBWVw2Xd-Zo/export?format=xlsx' }, // Replace with actual URLs and download URLs
+  ];

@@ -2,13 +2,9 @@ import React, { useState, useRef } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "../components/ui/dialog";
 import { Button } from "../components/ui/button";
 import { cn } from "../lib/utils"; // Assuming cn utility is available for conditional class names
+import { financialModels } from '../constants.tsx';
 
-// Sample data for financial models
-const financialModels = [
-  { name: 'Model A', url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS8onhG-pDxcLGa2w6i1svzlwmwZDBVWpNYyaHLpciBhMBo0g5Chuin_2BdmMk7L-M_Yc5WSTgXVPaE/pubhtml?widget=true&headers=false', downloadUrl: 'https://docs.google.com/spreadsheets/d/1XqfR53PjQPE9rdqyHsujZxlM1i1SSB6MzBWVw2Xd-Zo/export?format=xlsx' },
-  { name: 'Model B', url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS8onhG-pDxcLGa2w6i1svzlwmwZDBVWpNYyaHLpciBhMBo0g5Chuin_2BdmMk7L-M_Yc5WSTgXVPaE/pubhtml?widget=true&headers=false', downloadUrl: 'https://docs.google.com/spreadsheets/d/1XqfR53PjQPE9rdqyHsujZxlM1i1SSB6MzBWVw2Xd-Zo/export?format=xlsx' }, // Replace with actual URLs and download URLs
-  { name: 'Model C', url: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS8onhG-pDxcLGa2w6i1svzlwmwZDBVWpNYyaHLpciBhMBo0g5Chuin_2BdmMk7L-M_Yc5WSTgXVPaE/pubhtml?widget=true&headers=false', downloadUrl: 'https://docs.google.com/spreadsheets/d/1XqfR53PjQPE9rdqyHsujZxlM1i1SSB6MzBWVw2Xd-Zo/export?format=xlsx' }, // Replace with actual URLs and download URLs
-];
+
 
 const FinancialModels: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
