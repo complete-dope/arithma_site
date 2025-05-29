@@ -4,7 +4,7 @@ import { cn } from '../../lib/utils';
 
 const Navbar: React.FC = () => {
   const navItems = [
-    { name: 'Financial Models', path: '/' },
+    { name: 'Financial Models', path: '/financial-models' },
     { name: 'Mutual Funds Analysis', path: '/mutual-funds' },
     { name: 'Calculators', path: '/calculators' },
     { name: 'Sectoral Analysis', path: '/sectoral-analysis' },
