@@ -24,8 +24,9 @@ const TopNavbar: React.FC = () => {
         <button
           className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#1993e5] text-white text-sm font-bold leading-normal tracking-[0.015em]"
         >
-          <span className="truncate">Get Started</span>
+          <span className="truncate">Stay Updated</span>
         </button>
+        {/* <p className="text-[#637988] text-sm font-normal leading-normal">Subscribe to our newsletter for market insights and updates.</p> */}
       </div>
     </header>
   );
