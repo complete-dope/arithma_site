@@ -4,9 +4,10 @@ interface FinancialModelCardProps {
   title: string;
   description: string;
   imageUrl: string;
+  githubSheetLink: string;
 }
 
-const FinancialModelCard: React.FC<FinancialModelCardProps> = ({ title, description, imageUrl }) => {
+const FinancialModelCard: React.FC<FinancialModelCardProps> = ({ title, description, imageUrl, githubSheetLink }) => {
   return (
     <div className="p-4">
       <div className="flex items-stretch justify-between gap-4 rounded-lg">
@@ -17,11 +18,23 @@ const FinancialModelCard: React.FC<FinancialModelCardProps> = ({ title, descript
               {description}
             </p>
           </div>
-          <button
-            className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 flex-row-reverse bg-[#f0f3f4] text-[#111518] text-sm font-medium leading-normal w-fit"
-          >
-            <span className="truncate">View Model</span>
-          </button>
+          <div className="flex gap-2">
+            <button
+              className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 flex-row-reverse bg-[#f0f3f4] text-[#111518] text-sm font-medium leading-normal w-fit"
+            >
+              <span className="truncate">View Model</span>
+            </button>
+            {githubSheetLink && (
+              <a
+                href={githubSheetLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 flex-row-reverse bg-[#f0f3f4] text-[#111518] text-sm font-medium leading-normal w-fit"
+              >
+                <span className="truncate">GitHub Sheet</span>
+              </a>
+            )}
+          </div>
         </div>
         <div
           className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"

@@ -1,25 +1,15 @@
 import React from 'react';
 import FinancialModelsSidebar from '../components/FinancialModelsSidebar';
 import FinancialModelCard from '../components/FinancialModelCard';
+import financialModelsData from '../../public/mapping.json';
 
 const FinancialModels2Page: React.FC = () => {
-  const financialModels = [
-    {
-      title: 'TechCorp Financial Model',
-      description: 'Detailed financial projections for TechCorp, including revenue, expenses, and profitability analysis.',
-      imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA0Ln2FN4AUzMm-rvSCqh8MJ1ik5TRSlzpywHJDfUdECDZ4gbtU5ExjGFJBWyhLAzcz2SE5K_hXhPn0MUF2f00GYdQBcqTnHT500NqzPOoidYOJNLvpbHFrExWxk2ueQ3343ZhUTH1pGU3reMNIi5nWY0QmFdA-BgchrDbkPPephi9lAKb3eXhZgE_NyAVpDUB-PdFgVuV0QgFbg_YQqjU1K-TsxMJyugtyzm4TxN-Xuvt2getbHm2M3hvlo95Rk8kv_AKJC3X6Q6g',
-    },
-    {
-      title: 'RetailCo Financial Model',
-      description: 'Comprehensive financial model for RetailCo, focusing on sales growth, cost management, and market trends.',
-      imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAVtirCoqS0x0hFjKzFdM8wi4I-Z7VgmstsZsUJYeKmnQK0vDFab-CEbuTPrQdgUXLATtMKqSATRfiSrA-iQWP3jQ7_XKWYx-f_xA_MMvlV6lbFlVlGzLhMAFCz_hdRprqYQ9hxUp1qx2UYHiMZlGzLhMAFCz_hdRprqYQ9hxUp1qx2UYHiMZ5EiKEVhP0U3JkQPaws4LtdgUZZhEtlpUyRduLfH_rqpY1XaTEUmGg2vF0eZ47neOtEgTxb5JD2eAJpVPgwymFXtaVIYbSMmuhQExFwMu6AAhZTnCw8Iqn-MPdxs',
-    },
-    {
-      title: 'HealthInc Financial Model',
-      description: 'In-depth financial analysis for HealthInc, covering revenue streams, operational costs, and future growth potential.',
-      imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBoO7g388LUrDB5jpr27GkJncZ3X52CBSbJKC74Q9iqG075ugpXBXOV3s2pB1PTR-ytxxqu6jLc1UCHhzv9xWjaIhUCjvxDHi9gCBxU87EvqCFddhC9rHxqR5KAFkGDJ3ZQCXkVFGWkp6DpimA0MuyT8avE9AzzkoMzd6AKnU-GElDvBO5FdemZ4Ew30s5GhgbUWeA4C7t1Wh91ZSGQZNTe_WBk4m38CGDHcg-XHm9oCS4lO1nmFqqiWcNyZNxCfPikoMCGBV2Hr3o',
-    },
-  ];
+  const financialModels = financialModelsData.map(model => ({
+    title: model.title,
+    description: model.description,
+    imageUrl: model.image_url,
+    githubSheetLink: model.github_sheet_link,
+  }));
 
   return (
     <div className="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style={{ fontFamily: '"Work Sans", "Noto Sans", sans-serif' }}>
@@ -70,6 +60,7 @@ const FinancialModels2Page: React.FC = () => {
                 title={model.title}
                 description={model.description}
                 imageUrl={model.imageUrl}
+                githubSheetLink={model.githubSheetLink}
               />
             ))}
           </div>
