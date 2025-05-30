@@ -1,9 +1,11 @@
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import React from 'react';
 
 const TopNavbar: React.FC = () => {
   return (
     <header className="flex items-center justify-between whitespace-anowrap border-b border-solid border-b-[#f0f3f4] px-10 py-3">
-      <div className="flex items-center gap-4 text-[#111518]">
+      <a href="/" className="flex items-center gap-4 text-[#111518]">
         <div className="size-4">
           <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -13,19 +15,17 @@ const TopNavbar: React.FC = () => {
           </svg>
         </div>
         <h2 className="text-[#111518] text-lg font-bold leading-tight tracking-[-0.015em]">Arithma</h2>
-      </div>
+      </a>
       <div className="flex flex-1 justify-end gap-8">
         <div className="flex items-center gap-9">
-          <a className="text-[#111518] text-sm font-medium leading-normal" href="/financial-models">Models</a>
-          <a className="text-[#111518] text-sm font-medium leading-normal" href="#">Blog</a>
-          <a className="text-[#111518] text-sm font-medium leading-normal" href="#">Videos</a>
-          <a className="text-[#111518] text-sm font-medium leading-normal" href="#">Community</a>
+          <a className={cn("text-sm font-medium leading-normal text-gray-700 transition-colors hover:text-primary")} href="/financial-models">Models</a>
+          <a className={cn("text-sm font-medium leading-normal text-gray-700 transition-colors hover:text-primary")} href="#">Blog</a>
+          <a className={cn("text-sm font-medium leading-normal text-gray-700 transition-colors hover:text-primary")} href="#">Videos</a>
+          <a className={cn("text-sm font-medium leading-normal text-gray-700 transition-colors hover:text-primary")} href="#">Community</a>
         </div>
-        <button
-          className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#1993e5] text-white text-sm font-bold leading-normal tracking-[0.015em]"
-        >
-          <span className="truncate">Stay Updated</span>
-        </button>
+        <Button className="min-w-[84px] max-w-[480px] h-10 px-4 bg-[#1993e5] text-white text-sm font-bold leading-normal tracking-[0.015em]">
+          Stay Updated
+        </Button>
         {/* <p className="text-[#637988] text-sm font-normal leading-normal">Subscribe to our newsletter for market insights and updates.</p> */}
       </div>
     </header>

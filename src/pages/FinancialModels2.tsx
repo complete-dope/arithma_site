@@ -1,7 +1,7 @@
 import React from 'react';
 import FinancialModelsSidebar from '../components/FinancialModelsSidebar';
 import FinancialModelCard from '../components/FinancialModelCard';
-import financialModelsData from '../../public/mapping.json';
+import financialModelsData from '../mapping.json';
 
 const FinancialModels2Page: React.FC = () => {
   const financialModels = financialModelsData.map(model => ({

@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import React from 'react';
 
 const FinancialModelsSidebar: React.FC = () => {
@@ -6,7 +7,7 @@ const FinancialModelsSidebar: React.FC = () => {
       <div className="flex h-full min-h-[700px] flex-col justify-between bg-white p-4">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-3 px-3 py-2">
+            <Button variant="ghost" className="flex items-center justify-start gap-3 px-3 py-2 w-full">
               <div className="text-[#111518]" data-icon="House" data-size="24px" data-weight="regular">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                   <path
@@ -14,9 +15,9 @@ const FinancialModelsSidebar: React.FC = () => {
                   ></path>
                 </svg>
               </div>
-              <p className="text-[#111518] text-sm font-medium leading-normal">Dashboard</p>
-            </div>
-            <div className="flex items-center gap-3 px-3 py-2">
+              <span className="text-[#111518] text-sm font-medium leading-normal">Dashboard</span>
+            </Button>
+            <Button variant="ghost" className="flex items-center justify-start gap-3 px-3 py-2 w-full">
               <div className="text-[#111518]" data-icon="GraduationCap" data-size="24px" data-weight="regular">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                   <path
@@ -24,9 +25,9 @@ const FinancialModelsSidebar: React.FC = () => {
                   ></path>
                 </svg>
               </div>
-              <p className="text-[#111518] text-sm font-medium leading-normal">Learn</p>
-            </div>
-            <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#f0f3f4]">
+              <span className="text-[#111518] text-sm font-medium leading-normal">Learn</span>
+            </Button>
+            <Button variant="ghost" className="flex items-center justify-start gap-3 px-3 py-2 w-full rounded-lg bg-[#f0f3f4]">
               <div className="text-[#111518]" data-icon="PresentationChart" data-size="24px" data-weight="fill">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                   <path
@@ -34,9 +35,9 @@ const FinancialModelsSidebar: React.FC = () => {
                   ></path>
                 </svg>
               </div>
-              <p className="text-[#111518] text-sm font-medium leading-normal">Models</p>
-            </div>
-            <div className="flex items-center gap-3 px-3 py-2">
+              <span className="text-[#111518] text-sm font-medium leading-normal">Models</span>
+            </Button>
+            <Button variant="ghost" className="flex items-center justify-start gap-3 px-3 py-2 w-full">
               <div className="text-[#111518]" data-icon="Users" data-size="24px" data-weight="regular">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                   <path
@@ -44,9 +45,9 @@ const FinancialModelsSidebar: React.FC = () => {
                   ></path>
                 </svg>
               </div>
-              <p className="text-[#111518] text-sm font-medium leading-normal">Community</p>
-            </div>
-            <div className="flex items-center gap-3 px-3 py-2">
+              <span className="text-[#111518] text-sm font-medium leading-normal">Community</span>
+            </Button>
+            <Button variant="ghost" className="flex items-center justify-start gap-3 px-3 py-2 w-full">
               <div className="text-[#111518]" data-icon="User" data-size="24px" data-weight="regular">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
                   <path
@@ -54,8 +55,8 @@ const FinancialModelsSidebar: React.FC = () => {
                   ></path>
                 </svg>
               </div>
-              <p className="text-[#111518] text-sm font-medium leading-normal">Profile</p>
-            </div>
+              <span className="text-[#111518] text-sm font-medium leading-normal">Profile</span>
+            </Button>
           </div>
         </div>
       </div>
