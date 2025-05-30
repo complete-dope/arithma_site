@@ -5,7 +5,6 @@ const FinancialModelsSidebar: React.FC = () => {
     <div className="layout-content-container flex flex-col w-80">
       <div className="flex h-full min-h-[700px] flex-col justify-between bg-white p-4">
         <div className="flex flex-col gap-4">
-          <h1 className="text-[#111518] text-base font-medium leading-normal">FinEd</h1>
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-3 px-3 py-2">
               <div className="text-[#111518]" data-icon="House" data-size="24px" data-weight="regular">

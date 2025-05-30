@@ -16,7 +16,6 @@ const ResourcesPage = () => {
                 ></path>
               </svg>
             </div>
-            <h2 className="text-[#111518] text-lg font-bold leading-tight tracking-[-0.015em]">FinEd</h2>
           </div>
           <div className="flex flex-1 justify-end gap-8">
             <div className="flex items-center gap-9">

@@ -1,12 +1,12 @@
 import { Outlet } from 'react-router-dom';
 import React from 'react';
 
-import Navbar from './navbar';
+import TopNavbar from './TopNavbar';
 
 const Layout: React.FC = () => {
   return (
     <div>
-      <Navbar />
+      <TopNavbar />
       <main>
         <Outlet /> {/* This is where the routed components will render */}
       </main>
