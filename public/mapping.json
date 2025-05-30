@@ -2,11 +2,13 @@
     { 
         "title": "NBFC",
         "description": "In depth analysis for NBFC firms and ",
+        "image_url" : "",
         "github_sheet_link": "https://github.com/complete-dope/fin-models/blob/main/sheets/NBFC.xlsx"
     },
     {
         "title": "Commodities",
         "description": "In depth analysis of commodities market",
+        "image_url": "",
         "github_sheet_link": "https://github.com/complete-dope/fin-models/blob/main/sheets/commodities.xlsx"
     }
 ]
