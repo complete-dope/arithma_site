@@ -33,11 +33,11 @@ const FinancialModels2Page: React.FC = () => {
                       ></path>
                     </svg>
                   </div>
-                  <input
+                  {/* <input
                     placeholder="Search for companies"
                     className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#f0f3f4] focus:border-none h-full placeholder:text-[#637988] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
                     value=""
-                  />
+                  /> */}
                 </div>
               </label>
             </div>
