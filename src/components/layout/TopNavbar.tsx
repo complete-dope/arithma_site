@@ -1,6 +1,12 @@
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import React from 'react';
+import React, { useState } from 'react';
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import HubSpotEmailForm from '@/pages/stay_updated';
 
 const TopNavbar: React.FC = () => {
   return (
@@ -23,9 +29,16 @@ const TopNavbar: React.FC = () => {
           <a className={cn("text-sm font-medium leading-normal text-gray-700 transition-colors hover:text-primary")} href="#">Videos</a>
           <a className={cn("text-sm font-medium leading-normal text-gray-700 transition-colors hover:text-primary")} href="#">Community</a>
         </div>
-        <Button className="min-w-[84px] max-w-[480px] h-10 px-4 bg-[#1993e5] text-white text-sm font-bold leading-normal tracking-[0.015em]">
-          Stay Updated
-        </Button>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button className="min-w-[84px] max-w-[480px] h-10 px-4 bg-[#1993e5] text-white text-sm font-bold leading-normal tracking-[0.015em]">
+              Stay Updated
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <HubSpotEmailForm />
+          </DialogContent>
+        </Dialog>
         {/* <p className="text-[#637988] text-sm font-normal leading-normal">Subscribe to our newsletter for market insights and updates.</p> */}
       </div>
     </header>

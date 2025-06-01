@@ -6,11 +6,10 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 interface FinancialModelCardProps {
   title: string;
   description: string;
-  imageUrl: string;
   githubSheetLink: string; // Assuming this is the direct link to the .xlsx file
 }
 
-const FinancialModelCard: React.FC<FinancialModelCardProps> = ({ title, description, imageUrl, githubSheetLink }) => {
+const FinancialModelCard: React.FC<FinancialModelCardProps> = ({ title, description, githubSheetLink }) => {
   const [isViewerOpen, setIsViewerOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [viewerError, setViewerError] = useState<string | null>(null);
@@ -37,14 +36,18 @@ const FinancialModelCard: React.FC<FinancialModelCardProps> = ({ title, descript
     }
 
     // Attempt to convert GitHub blob links to raw links
-    if (fileUrl.includes('github.com') && fileUrl.includes('/blob/')) {
-      fileUrl = fileUrl.replace('github.com', 'raw.githubusercontent.com').replace('/blob/', '/');
+    if (fileUrl.includes('github.com')){
+      fileUrl = fileUrl.replace('github.com', 'raw.githubusercontent.com')
     } else if (fileUrl.includes('github.com') && fileUrl.includes('/raw/')) {
         // Already a raw link, no change needed
     } else if (fileUrl.includes('github.com')) {
         // Might be another GitHub page link, warn the user
         console.warn("GitHub link does not appear to be a raw file or blob link:", fileUrl);
         // Continue anyway, the Office viewer might handle some cases
+    }
+
+    if (fileUrl.includes('/blob/')){
+      fileUrl = fileUrl.replace('/blob/', '/')
     }
 
     // Optional: Add a check for .xlsx or .xls extension if strictly needed,
@@ -63,14 +66,13 @@ const FinancialModelCard: React.FC<FinancialModelCardProps> = ({ title, descript
 
     console.log("Attempting to load viewer with URL:", officeViewerUrl);
 
-    // Set a timeout to hide the loading indicator after a few seconds
+    // // Set a timeout to hide the loading indicator after a few seconds
     // loadingTimeoutRef.current = setTimeout(() => {
     //   setIsLoading(false);
-    //   // // Optionally set an error here if viewerUrl is still null, though it should be set by now
-    //   // if (!viewerUrl) {
-    //   //      setViewerError('Viewer did not start loading. Please check the link.');
-    //   // }
-    // }, 2000); // 2 seconds timeout
+    //   if (!viewerUrl) {
+    //        setViewerError('Viewer did not start loading. Please check the link.');
+    //   }
+    // }, 2000); //2 seconds timeout
   };
 
   // Clear timeout when the component unmounts or dialog is closed
@@ -98,13 +100,13 @@ const FinancialModelCard: React.FC<FinancialModelCardProps> = ({ title, descript
 
 
   return (
-    <Card className="flex flex-col md:flex-row items-stretch justify-between gap-4 p-4">
-      <div className="flex flex-col gap-4 flex-grow md:flex-[2_2_0px]">
-        <CardHeader className="p-0">
+    <Card className="flex flex-col gap-0 md:flex-row items-stretch justify-between md:gap-4 pt-4 pl-4 pr-4 pb-2 m-1">
+      <div className="flex flex-col flex-grow md:flex-[2_2_0px] pb-0">
+        <CardHeader className="p-1">
           <CardTitle>{title}</CardTitle>
           <CardDescription>{description}</CardDescription>
         </CardHeader>
-        <CardFooter className="flex gap-2 p-0 mt-auto">
+        <CardFooter className="flex gap-2 p-0 mt-auto items-end">
           
           <Dialog open={isViewerOpen} onOpenChange={handleOpenChange}>
             <DialogTrigger asChild>
@@ -159,12 +161,6 @@ const FinancialModelCard: React.FC<FinancialModelCardProps> = ({ title, descript
           )}
         </CardFooter>
       </div>
-      <CardContent className="p-0 flex-shrink-0 w-full md:w-1/3">
-        <div
-          className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-md"
-          style={{ backgroundImage: `url("${imageUrl}")` }}
-        ></div>
-      </CardContent>
     </Card>
   );
 

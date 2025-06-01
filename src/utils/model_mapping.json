@@ -1,0 +1,24 @@
+
+[
+    { 
+        "title": "NBFC",
+        "description": "In depth analysis for NBFC firms and relative competitor analysis",
+        "github_sheet_link": "https://github.com/complete-dope/fin-models/main/sheets/NBFC.xlsx"
+    },
+    {
+        "title": "Commodities",
+        "description": "In depth analysis of commodities market",
+        "github_sheet_link": "https://github.com/complete-dope/fin-models/main/sheets/commodities.xlsx"
+    },
+    {
+        "title": "ENERGY",
+        "description": "In depth analysis of ENERGY sector",
+        "github_sheet_link": "https://github.com/complete-dope/fin-models/main/sheets/ENERGY.xlsx"
+    },
+    {
+        "title": "AI",
+        "description": "In depth analysis of companies operating in AI sector and how there raw materials required ",
+        "github_sheet_link": "https://github.com/complete-dope/fin-models/main/sheets/AI.xlsx"
+    }
+    
+]

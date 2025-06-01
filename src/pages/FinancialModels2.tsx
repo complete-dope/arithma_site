@@ -1,13 +1,12 @@
 import React from 'react';
 import FinancialModelsSidebar from '../components/FinancialModelsSidebar';
 import FinancialModelCard from '../components/FinancialModelCard';
-import financialModelsData from '../mapping.json';
+import financialModelsData from '../utils/model_mapping.json';
 
 const FinancialModels2Page: React.FC = () => {
   const financialModels = financialModelsData.map(model => ({
     title: model.title,
     description: model.description,
-    imageUrl: model.image_url,
     githubSheetLink: model.github_sheet_link,
   }));
 
@@ -33,11 +32,11 @@ const FinancialModels2Page: React.FC = () => {
                       ></path>
                     </svg>
                   </div>
-                  {/* <input
+                  <input
                     placeholder="Search for companies"
                     className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111518] focus:outline-0 focus:ring-0 border-none bg-[#f0f3f4] focus:border-none h-full placeholder:text-[#637988] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
                     value=""
-                  /> */}
+                  />
                 </div>
               </label>
             </div>
@@ -59,7 +58,6 @@ const FinancialModels2Page: React.FC = () => {
                 key={index}
                 title={model.title}
                 description={model.description}
-                imageUrl={model.imageUrl}
                 githubSheetLink={model.githubSheetLink}
               />
             ))}
