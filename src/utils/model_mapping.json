@@ -1,24 +1,30 @@
 
+
 [
     { 
         "title": "NBFC",
         "description": "In depth analysis for NBFC firms and relative competitor analysis",
-        "github_sheet_link": "https://github.com/complete-dope/fin-models/main/sheets/NBFC.xlsx"
+        "github_sheet_link": "https://github.com/complete-dope/fin-models/main/sheets/NBFC.xlsx",
+        "grasp_link" : "https://raw.githubusercontent.com/complete-dope/fin-models/refs/heads/main/posts/NBFC.md"
     },
     {
         "title": "Commodities",
         "description": "In depth analysis of commodities market",
-        "github_sheet_link": "https://github.com/complete-dope/fin-models/main/sheets/commodities.xlsx"
+        "github_sheet_link": "https://github.com/complete-dope/fin-models/main/sheets/commodities.xlsx",
+        "grasp_link" : "https://raw.githubusercontent.com/complete-dope/fin-models/refs/heads/main/posts/NBFC.md"
     },
     {
         "title": "ENERGY",
         "description": "In depth analysis of ENERGY sector",
-        "github_sheet_link": "https://github.com/complete-dope/fin-models/main/sheets/ENERGY.xlsx"
+        "github_sheet_link": "https://github.com/complete-dope/fin-models/main/sheets/ENERGY.xlsx",
+        "grasp_link" : "https://raw.githubusercontent.com/complete-dope/fin-models/refs/heads/main/posts/NBFC.md"
     },
     {
         "title": "AI",
         "description": "In depth analysis of companies operating in AI sector and how there raw materials required ",
-        "github_sheet_link": "https://github.com/complete-dope/fin-models/main/sheets/AI.xlsx"
+        "github_sheet_link": "https://github.com/complete-dope/fin-models/main/sheets/AI.xlsx",
+        "grasp_link" : "https://raw.githubusercontent.com/complete-dope/fin-models/refs/heads/main/posts/NBFC.md"
     }
-    
 ]
+
+
